@@ -17,6 +17,8 @@
 		A100000F /* AlarmTriggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100000E /* AlarmTriggerView.swift */; };
 		A1000011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000010 /* Assets.xcassets */; };
 		A1000013 /* alarm_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1000012 /* alarm_sound.mp3 */; };
+		A1000015 /* CoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000014 /* CoinManager.swift */; };
+		A1000017 /* PurchaseCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000016 /* PurchaseCoinsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +33,9 @@
 		A100000E /* AlarmTriggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTriggerView.swift; sourceTree = "<group>"; };
 		A1000010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1000012 /* alarm_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm_sound.mp3; sourceTree = "<group>"; };
-		A1000014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1000014 /* CoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinManager.swift; sourceTree = "<group>"; };
+		A1000016 /* PurchaseCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCoinsView.swift; sourceTree = "<group>"; };
+		A1000018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +68,16 @@
 		A1000015 /* AlarmLouder */ = {
 			isa = PBXGroup;
 			children = (
-				A1000014 /* Info.plist */,
+				A1000018 /* Info.plist */,
 				A1000000 /* AlarmLouderApp.swift */,
 				A1000002 /* ContentView.swift */,
 				A1000008 /* AlarmListView.swift */,
 				A100000A /* AddAlarmView.swift */,
 				A100000E /* AlarmTriggerView.swift */,
+				A1000016 /* PurchaseCoinsView.swift */,
 				A1000004 /* Alarm.swift */,
 				A1000006 /* AlarmManager.swift */,
+				A1000014 /* CoinManager.swift */,
 				A100000C /* AlarmSoundPlayer.swift */,
 				A1000010 /* Assets.xcassets */,
 				A1000012 /* alarm_sound.mp3 */,
@@ -152,6 +158,8 @@
 				A100000B /* AddAlarmView.swift in Sources */,
 				A100000D /* AlarmSoundPlayer.swift in Sources */,
 				A100000F /* AlarmTriggerView.swift in Sources */,
+				A1000015 /* CoinManager.swift in Sources */,
+				A1000017 /* PurchaseCoinsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

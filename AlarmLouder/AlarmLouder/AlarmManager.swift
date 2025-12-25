@@ -137,8 +137,12 @@ class AlarmManager: ObservableObject {
         isAlarmTriggered = true
     }
 
-    func snoozeAlarm() {
-        guard let alarm = currentTriggeredAlarm, alarm.snoozeEnabled else { return }
+    func snoozeAlarm() -> Bool {
+        guard let alarm = currentTriggeredAlarm, alarm.snoozeEnabled else { return false }
+
+        guard CoinManager.shared.deductCoins(CoinManager.shared.coinsPerSnooze) else {
+            return false
+        }
 
         let snoozeTime = Date().addingTimeInterval(TimeInterval(alarm.snoozeDuration * 60))
         var snoozeAlarm = alarm
@@ -149,6 +153,7 @@ class AlarmManager: ObservableObject {
 
         addAlarm(snoozeAlarm)
         dismissAlarm()
+        return true
     }
 
     func dismissAlarm() {

@@ -2,36 +2,69 @@ import SwiftUI
 
 struct AlarmListView: View {
     @EnvironmentObject var alarmManager: AlarmManager
+    @StateObject private var coinManager = CoinManager.shared
     @State private var showingAddAlarm = false
+    @State private var showingPurchaseCoins = false
 
     var body: some View {
         NavigationView {
-            ZStack {
-                if alarmManager.alarms.isEmpty {
-                    VStack(spacing: 20) {
-                        Image(systemName: "alarm.fill")
-                            .font(.system(size: 80))
-                            .foregroundColor(.gray.opacity(0.5))
-
-                        Text("No Alarms")
+            VStack(spacing: 0) {
+                Button {
+                    showingPurchaseCoins = true
+                } label: {
+                    HStack {
+                        Image(systemName: "dollarsign.circle.fill")
                             .font(.title2)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.orange)
 
-                        Text("Tap + to add an alarm")
-                            .font(.subheadline)
-                            .foregroundColor(.gray.opacity(0.7))
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("\(coinManager.coinBalance) coins")
+                                .font(.headline)
+                                .foregroundColor(.primary)
+
+                            Text("Snooze costs \(coinManager.coinsPerSnooze) coins")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+
+                        Spacer()
+
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
-                } else {
-                    List {
-                        ForEach(alarmManager.alarms) { alarm in
-                            AlarmRowView(alarm: alarm)
-                                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                                    Button(role: .destructive) {
-                                        alarmManager.deleteAlarm(alarm)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
+                    .padding()
+                    .background(Color(.systemGray6))
+                }
+                .buttonStyle(PlainButtonStyle())
+
+                ZStack {
+                    if alarmManager.alarms.isEmpty {
+                        VStack(spacing: 20) {
+                            Image(systemName: "alarm.fill")
+                                .font(.system(size: 80))
+                                .foregroundColor(.gray.opacity(0.5))
+
+                            Text("No Alarms")
+                                .font(.title2)
+                                .foregroundColor(.gray)
+
+                            Text("Tap + to add an alarm")
+                                .font(.subheadline)
+                                .foregroundColor(.gray.opacity(0.7))
+                        }
+                    } else {
+                        List {
+                            ForEach(alarmManager.alarms) { alarm in
+                                AlarmRowView(alarm: alarm)
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                        Button(role: .destructive) {
+                                            alarmManager.deleteAlarm(alarm)
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
                                     }
-                                }
+                            }
                         }
                     }
                 }
@@ -49,6 +82,9 @@ struct AlarmListView: View {
             }
             .sheet(isPresented: $showingAddAlarm) {
                 AddAlarmView()
+            }
+            .sheet(isPresented: $showingPurchaseCoins) {
+                PurchaseCoinsView()
             }
         }
     }

@@ -1,0 +1,19 @@
+ALARM SOUND FILE NEEDED
+========================
+
+Please add an MP3 file named "alarm_sound.mp3" to this directory.
+
+For the loudest and most effective alarm, use an audio file with:
+- High volume normalization
+- Sharp, attention-grabbing tones (sirens, beeps, or loud music)
+- Duration of at least 30 seconds (it will loop)
+- MP3 format for iOS compatibility
+
+You can use:
+- A siren sound effect
+- A loud beeping tone
+- Upbeat, energetic music
+- Any sound that will effectively wake you up
+
+The app is configured to play this sound at maximum volume with continuous looping
+and vibration until dismissed or snoozed.

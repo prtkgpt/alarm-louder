@@ -30,5 +30,7 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>Alarm Louder needs notification permission to trigger alarms even when the app is closed. This ensures your alarms wake you up on time.</string>
 </dict>
 </plist>
